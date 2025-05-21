@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import aiImage from '../public/images.jpg';
 
 export default function Home() {
   return (
@@ -20,9 +22,18 @@ export default function Home() {
       <main className="flex-1 p-10">
         <section className="max-w-3xl">
           <h2 className="text-4xl font-semibold text-gray-800 mb-4">Welkom bij UniCareNL</h2>
-          <p className="text-gray-600 text-lg">
-            Wij verbeteren communicatie in de gezondheidszorg met realtime AI-vertalingen — elke interactie eenvoudig en toegankelijk maken.
+          <p className="text-gray-600 text-lg mb-6">
+            Wij verbeteren communicatie in de gezondheidszorg met realtime AI-vertalingen — elke interactie eenvoudig en toegankelijk maken. Via een reeks vooraf ingestelde vragen en antwoorden genereren wij automatisch een Nederlandstalig ticket dat aan de receptie kan worden getoond, zodat de patiënt direct de juiste zorg ontvangt.
           </p>
+
+          <Image src={aiImage} alt="AI vertaling" width={500} height={300} className="rounded-lg shadow-md mb-6" />
+
+          <div className="bg-white p-6 rounded-xl shadow-md mb-6">
+            <h3 className="text-2xl font-bold text-blue-700 mb-2">3D Touch Human Model</h3>
+            <p className="text-gray-600">
+              Ons interactieve 3D-model stelt patiënten in staat om aan te geven waar ze pijn ervaren. Door simpelweg het pijnlijke lichaamsdeel aan te raken, wordt de informatie digitaal verwerkt en kan zorgpersoneel snel en accuraat hulp bieden.
+            </p>
+          </div>
         </section>
       </main>
 
