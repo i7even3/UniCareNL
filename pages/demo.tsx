@@ -19,31 +19,25 @@ export default function Demo() {
       {/* Hoofdinhoud */}
       <main className="flex-1 p-10">
         <section className="max-w-3xl">
-          <h2 className="text-4xl font-semibold text-gray-800 mb-4">Demo Aanvragen</h2>
-          <p className="text-gray-600 text-lg mb-6">
-            Vraag eenvoudig een demo aan van UniCareNL. Vul onderstaand formulier in en wij nemen zo snel mogelijk contact met u op.
+          <h2 className="text-4xl font-semibold text-gray-800 mb-6">Demo Aanvragen</h2>
+          <p className="text-gray-700 text-lg mb-6">
+            Vul onderstaand formulier in om toegang te krijgen tot een demo van UniCareNL. Binnen 1 werkdag nemen wij contact met je op.
           </p>
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Naam"
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-            <input
-              type="email"
-              placeholder="E-mailadres"
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-            <textarea
-              placeholder="Bericht of specifieke wensen"
-              className="w-full p-2 border border-gray-300 rounded-md"
-              rows={4}
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-            >
-              Verzenden
+          <form className="bg-white shadow-md rounded-lg p-6 space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="naam">Naam</label>
+              <input type="text" id="naam" className="w-full border rounded px-3 py-2" placeholder="Jouw naam" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">E-mailadres</label>
+              <input type="email" id="email" className="w-full border rounded px-3 py-2" placeholder="voorbeeld@email.com" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="organisatie">Organisatie (optioneel)</label>
+              <input type="text" id="organisatie" className="w-full border rounded px-3 py-2" placeholder="Naam van organisatie" />
+            </div>
+            <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+              Verstuur aanvraag
             </button>
           </form>
         </section>
