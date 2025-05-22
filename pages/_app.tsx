@@ -1,9 +1,9 @@
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Sun, Moon } from 'lucide-react';
-import '../styles/globals.css';
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -35,13 +35,13 @@ export default function App({ Component, pageProps }) {
             onClick={() => setDarkMode(!darkMode)}
             className="mt-auto flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 hover:text-blue-500"
           >
-            {darkMode ? <Moon size={18} /> : <Sun size={18} />}
+            <span className="text-lg">{darkMode ? '🌙' : '🌞'}</span>
             {darkMode ? 'Donkere modus' : 'Lichte modus'}
           </button>
         </aside>
 
-        {/* Hoofdinhoud */}
-        <main className="flex-1">
+        {/* Pagina-inhoud */}
+        <main className="flex-1 p-10">
           <Component {...pageProps} />
         </main>
       </div>
