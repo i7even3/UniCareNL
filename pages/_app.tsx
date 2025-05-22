@@ -1,3 +1,4 @@
+// pages/_app.tsx
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
@@ -22,13 +23,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <aside className="w-60 bg-white dark:bg-gray-800 border-r shadow p-4 flex flex-col space-y-4">
           <h1 className="text-2xl font-bold text-blue-700 dark:text-blue-300">UniCareNL</h1>
           <nav className="flex flex-col space-y-2 mt-4">
-            <Link href="/">Startpagina</Link>
-            <Link href="/about">Over Ons</Link>
-            <Link href="/demo">Demo Aanvragen</Link>
-            <Link href="/privacy">Privacybeleid</Link>
-            <Link href="/terms">Algemene Voorwaarden</Link>
-            <Link href="/contact">Contactinformatie</Link>
-            <Link href="/issues">Problemen & Oplossingen</Link>
+            <Link href="/" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Startpagina</Link>
+            <Link href="/about" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Over Ons</Link>
+            <Link href="/demo" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Demo Aanvragen</Link>
+            <Link href="/privacy" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Privacybeleid</Link>
+            <Link href="/terms" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Algemene Voorwaarden</Link>
+            <Link href="/contact" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Contactinformatie</Link>
+            <Link href="/issues" className="text-gray-700 dark:text-gray-200 hover:text-blue-600">Problemen & Oplossingen</Link>
           </nav>
 
           {/* Light/Dark Toggle */}
