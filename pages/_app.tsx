@@ -8,8 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const root = document.documentElement;
-    if (darkMode) root.classList.add('dark');
-    else root.classList.remove('dark');
+    if (darkMode) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
   }, [darkMode]);
 
   return (
