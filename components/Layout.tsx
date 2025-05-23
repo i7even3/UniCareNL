@@ -1,15 +1,18 @@
-import Link from 'next/link';
-import { ReactNode } from 'react';
+import Link from 'next/link'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
-interface LayoutProps {
-  children: ReactNode;
+type LayoutProps = {
+  children: React.ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const [open, setOpen] = useState(false)
+
   return (
     <div className="flex min-h-screen bg-gray-50">
-      {/* Zijbalk */}
-      <aside className="w-60 bg-white border-r shadow-sm p-4 flex flex-col gap-4">
+      {/* Sidebar */}
+      <aside className="hidden md:flex w-60 bg-white border-r shadow-sm p-4 flex-col gap-4">
         <h1 className="text-2xl font-bold text-blue-700">UniCareNL</h1>
         <nav className="flex flex-col gap-2 mt-4">
           <Link href="/" className="text-gray-700 hover:text-blue-600">Startpagina</Link>
@@ -21,16 +24,30 @@ export default function Layout({ children }: LayoutProps) {
         </nav>
       </aside>
 
-      {/* Pagina inhoud */}
-      <main className="flex-1 p-10">
-        {children}
-      </main>
+      {/* Mobile Toggle Button */}
+      <div className="md:hidden absolute top-4 left-4 z-50">
+        <button onClick={() => setOpen(!open)} className="p-2 bg-white rounded shadow">
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
 
-      {/* Chatbox Footer (placeholder) */}
-      <footer className="fixed bottom-0 right-0 m-4 p-4 bg-blue-100 rounded-2xl shadow-lg text-sm text-gray-800">
-        <p className="font-medium">Virtuele webassistent (chatbox placeholder)</p>
-        <p className="text-xs text-gray-600">Chatfunctie binnenkort beschikbaar...</p>
-      </footer>
+      {/* Mobile Menu */}
+      {open && (
+        <aside className="fixed top-0 left-0 w-64 h-full bg-white z-40 shadow-lg p-4 flex flex-col gap-4">
+          <h1 className="text-2xl font-bold text-blue-700">UniCareNL</h1>
+          <nav className="flex flex-col gap-2 mt-4">
+            <Link href="/" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Startpagina</Link>
+            <Link href="/about" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Over Ons</Link>
+            <Link href="/demo" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Demo Aanvragen</Link>
+            <Link href="/privacy" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Privacybeleid</Link>
+            <Link href="/terms" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Algemene Voorwaarden</Link>
+            <Link href="/contact" onClick={() => setOpen(false)} className="text-gray-700 hover:text-blue-600">Contactinformatie</Link>
+          </nav>
+        </aside>
+      )}
+
+      {/* Main content */}
+      <main className="flex-1 p-6">{children}</main>
     </div>
-  );
+  )
 }
