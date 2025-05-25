@@ -1,31 +1,48 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <section className="max-w-3xl mx-auto p-10">
-      <h2 className="text-4xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-        Welkom bij UniCareNL
-      </h2>
-      <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
-        Wij verbeteren communicatie in de gezondheidszorg met realtime AI-vertalingen — elke interactie eenvoudig en toegankelijk maken. Via een reeks vooraf ingestelde vragen en antwoorden genereren wij automatisch een Nederlandstalig ticket dat aan de receptie kan worden getoond, zodat de patiënt direct de juiste zorg ontvangt.
-      </p>
-      <div className="flex justify-center mb-6">
-        <Image
-          src="/images.jpg"
-          alt="AI vertaling voorbeeld"
-          width={600}
-          height={360}
-          className="rounded-lg shadow-md"
-        />
-      </div>
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-        <h3 className="text-2xl font-bold text-blue-700 dark:text-blue-300 mb-2">
-          3D Touch Human Model
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300">
-          Ons interactieve 3D-model stelt patiënten in staat om aan te geven waar ze pijn ervaren. Door simpelweg het pijnlijke lichaamsdeel aan te raken, wordt de informatie digitaal verwerkt en kan zorgpersoneel snel en accuraat hulp bieden.
+    <div className="flex flex-col">
+      {/* Hero section */}
+      <section className="bg-blue-100 px-8 py-20 text-center">
+        <h1 className="text-5xl font-bold text-blue-900">Welkom bij UniCareNL</h1>
+        <p className="mt-4 text-xl text-gray-700">
+          Dé AI-vertalingstool voor medische professionals. Snel, veilig en accuraat.
         </p>
-      </div>
-    </section>
+        <Link href="/demo">
+          <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md transition">
+            Probeer demo
+          </button>
+        </Link>
+      </section>
+
+      {/* Features section */}
+      <section className="px-6 py-16 bg-white grid md:grid-cols-3 gap-8 text-center">
+        <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+          <h3 className="text-2xl font-bold text-blue-800">Razendsnel</h3>
+          <p className="mt-2 text-gray-600">Onmiddellijke vertalingen tussen patiënt en zorgverlener.</p>
+        </div>
+        <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+          <h3 className="text-2xl font-bold text-blue-800">Medisch nauwkeurig</h3>
+          <p className="mt-2 text-gray-600">Gebaseerd op terminologie en context in de zorgsector.</p>
+        </div>
+        <div className="p-6 border rounded-2xl shadow-sm hover:shadow-md transition">
+          <h3 className="text-2xl font-bold text-blue-800">Gebruiksvriendelijk</h3>
+          <p className="mt-2 text-gray-600">Een simpele interface voor iedereen in het ziekenhuis.</p>
+        </div>
+      </section>
+
+      {/* Call to action */}
+      <section className="bg-blue-50 py-16 text-center">
+        <h2 className="text-3xl font-semibold text-blue-900">Ervaar het verschil vandaag nog</h2>
+        <p className="mt-2 text-gray-600">Verkort wachttijden, verbeter communicatie, en verminder fouten.</p>
+        <Link href="/demo">
+          <button className="mt-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition">
+            Vraag een demo aan
+          </button>
+        </Link>
+      </section>
+    </div>
   );
 }
