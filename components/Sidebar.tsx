@@ -1,29 +1,26 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
 
-type SidebarProps = {
+interface SidebarProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+}
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
+export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   return (
-    <div
-      className={`${
-        isOpen ? "block" : "hidden"
-      } md:block bg-white w-64 h-full border-r`}
+    <aside
+      className={`bg-white w-64 h-screen shadow-md fixed top-0 left-0 transition-transform ${
+        isOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}
     >
-      <div className="p-4 text-xl font-bold text-blue-600">UniCareNL</div>
-      <nav className="flex flex-col gap-2 p-4">
-        <Link href="/">Home</Link>
-        <Link href="/demo">Demo Aanvragen</Link>
-        <Link href="/problemen">Problemen</Link>
-        <Link href="/about">Over Ons</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/privacy">Privacybeleid</Link>
+      <div className="p-4 font-bold text-xl">UniCareNL</div>
+      <nav className="mt-4 space-y-2 px-4">
+        <a href="/" className="block text-blue-600 hover:underline">Home</a>
+        <a href="/about" className="block text-blue-600 hover:underline">About</a>
+        <a href="/contact" className="block text-blue-600 hover:underline">Contact</a>
+        <a href="/demo" className="block text-blue-600 hover:underline">Demo Aanvragen</a>
+        <a href="/privacy" className="block text-blue-600 hover:underline">Privacy</a>
+        <a href="/problemen" className="block text-blue-600 hover:underline">Problemen</a>
       </nav>
-    </div>
+    </aside>
   );
-};
-
-export default Sidebar;
+}
