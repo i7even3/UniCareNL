@@ -1,30 +1,21 @@
-import { Dispatch, SetStateAction } from 'react';
-import Image from 'next/image';
+import { Menu } from 'lucide-react';
 
 interface HeaderProps {
-  setSidebarOpen: Dispatch<SetStateAction<boolean>>;
+  setSidebarOpen: (open: boolean) => void;
 }
 
 export default function Header({ setSidebarOpen }: HeaderProps) {
   return (
-    <header className="bg-blue-800 text-white flex items-center justify-between px-4 py-3 shadow-md">
-      <div className="flex items-center space-x-2">
-        <Image src="/logo.png" alt="UniCareNL Logo" width={40} height={40} />
-        <span className="text-xl font-bold">UniCareNL</span>
-      </div>
-      <button
-        onClick={() => setSidebarOpen((prev) => !prev)}
-        className="md:hidden focus:outline-none"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+    <header className="bg-white shadow-md px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center">
+        <button
+          onClick={() => setSidebarOpen(true)}
+          className="text-gray-600 focus:outline-none md:hidden"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+          <Menu size={24} />
+        </button>
+        <h1 className="text-xl font-semibold text-blue-800 ml-4">UniCareNL</h1>
+      </div>
     </header>
   );
 }
