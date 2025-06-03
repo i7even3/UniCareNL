@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/globals.css';
-import Sidebar from '@/components/Sidebar';
-import Footer from '@/components/Footer';
+import Sidebar from '../components/Sidebar';
+import Footer from '../components/Footer';
 
 export default function App({ Component, pageProps }) {
   const [isClient, setIsClient] = useState(false);
