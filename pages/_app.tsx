@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 
 export default function App({ Component, pageProps }) {
   const [isClient, setIsClient] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
@@ -12,7 +13,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div className="flex">
-      <Sidebar />
+      <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       <main className="ml-64 flex-1 min-h-screen bg-gray-50 p-6">
         <Component {...pageProps} />
         {isClient && <Footer />}
