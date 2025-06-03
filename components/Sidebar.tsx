@@ -1,41 +1,29 @@
-import React from 'react';
-import Link from 'next/link';
-import { Home, Info, Mail, Lock, HelpCircle } from 'lucide-react';
+import React from "react";
+import Link from "next/link";
 
 type SidebarProps = {
   isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   return (
-    <aside
-      className={`bg-white shadow-md w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform ${
-        isOpen ? 'translate-x-0' : '-translate-x-full'
-      } transition duration-200 ease-in-out md:relative md:translate-x-0`}
+    <div
+      className={`${
+        isOpen ? "block" : "hidden"
+      } md:block bg-white w-64 h-full border-r`}
     >
-      <nav className="flex flex-col space-y-2">
-        <Link href="/" className="flex items-center space-x-2 text-gray-700 hover:bg-gray-100 p-2 rounded">
-          <Home size={20} />
-          <span>Home</span>
-        </Link>
-        <Link href="/demo" className="flex items-center space-x-2 text-gray-700 hover:bg-gray-100 p-2 rounded">
-          <HelpCircle size={20} />
-          <span>Demo Aanvragen</span>
-        </Link>
-        <Link href="/privacy" className="flex items-center space-x-2 text-gray-700 hover:bg-gray-100 p-2 rounded">
-          <Lock size={20} />
-          <span>Privacybeleid</span>
-        </Link>
-        <Link href="/contact" className="flex items-center space-x-2 text-gray-700 hover:bg-gray-100 p-2 rounded">
-          <Mail size={20} />
-          <span>Contact</span>
-        </Link>
-        <Link href="/about" className="flex items-center space-x-2 text-gray-700 hover:bg-gray-100 p-2 rounded">
-          <Info size={20} />
-          <span>Over</span>
-        </Link>
+      <div className="p-4 text-xl font-bold text-blue-600">UniCareNL</div>
+      <nav className="flex flex-col gap-2 p-4">
+        <Link href="/">Home</Link>
+        <Link href="/demo">Demo Aanvragen</Link>
+        <Link href="/problemen">Problemen</Link>
+        <Link href="/about">Over Ons</Link>
+        <Link href="/contact">Contact</Link>
+        <Link href="/privacy">Privacybeleid</Link>
       </nav>
-    </aside>
+    </div>
   );
-}
+};
+
+export default Sidebar;
