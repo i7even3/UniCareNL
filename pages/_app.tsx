@@ -1,23 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/globals.css';
 import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function App({ Component, pageProps }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-      <main className="ml-64 flex-1 min-h-screen bg-gray-50 p-6">
-        <Component {...pageProps} />
+      <div className="flex flex-col flex-1">
+        <Header setSidebarOpen={setSidebarOpen} />
+        <main className="flex-1 overflow-y-auto p-6 bg-gray-50">
+          <Component {...pageProps} />
+        </main>
         {isClient && <Footer />}
-      </main>
+      </div>
     </div>
   );
 }
